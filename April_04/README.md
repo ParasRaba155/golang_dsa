@@ -2,6 +2,8 @@
 
 ### From Quick Google search we find that Stack is the data structure with the following operations
 
+### A Stack follows F.I.L.O. (First In Last Out) model
+
 - Push : Add an element to the top of Stack
 - Pop : Remove an element from the top of Stack
 - IsEmpty : Check if the Stack is empty 
