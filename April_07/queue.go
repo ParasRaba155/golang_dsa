@@ -59,13 +59,16 @@ func (q *queue[k]) Dequeue() (err error) {
 		return ErrQueueIsEmpty
 	}
 	var zero k
-	q.items[q.front] = zero
-	q.front += 1 // set the new front
 
-	// if this is the last element
-	if q.size-1 == q.front && q.front == q.rear {
+	// if we are at the last element
+	if q.front == q.size-1 {
+		q.items[q.front] = zero
 		q.front, q.rear = -1, -1
+		return nil
 	}
+	q.items[q.front] = zero // set the current front element to zero
+	q.front += 1            // set the new front
+
 	return nil
 }
 
