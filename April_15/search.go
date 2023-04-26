@@ -42,3 +42,23 @@ func BinarySearch[K constraints.Ordered](list []K, item K) int {
 	}
 	return -1
 }
+
+// InterpolationSearch
+func InterpolationSearch(list []int, item int, high int, low int) (pos int) {
+	if low <= high && item >= list[low] && item <= list[high] {
+		pos = low + ((high - low) / (list[high] - list[low]) * (item - list[low]))
+		if list[pos] == item {
+			return pos
+		}
+
+		if list[pos] < item {
+			return InterpolationSearch(list, item, high, pos+1)
+		}
+
+		if list[pos] > item {
+			return InterpolationSearch(list, item, pos-1, low)
+		}
+	}
+	pos = -1
+	return pos
+}

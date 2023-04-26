@@ -32,8 +32,12 @@ func searchExample() {
 
 	l4 := []string{"abc", "b", "cut", "dr", "ef"}
 	r4 := search.BinarySearch(l4, "ff")
-	r5 := search.BinarySearch(l4, "dr")
+	r42 := search.BinarySearch(l4, "dr")
 	log.Printf("r4 = %d", r4)
+	log.Printf("r42 = %d", r42)
+
+	l5 := []int{10, 12, 13, 16, 18, 19, 20, 21, 22, 23, 24, 33, 35, 42, 47}
+	r5 := search.InterpolationSearch(l5, 20, len(l5)-1, 0)
 	log.Printf("r5 = %d", r5)
 }
 
